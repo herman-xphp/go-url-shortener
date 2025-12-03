@@ -3,6 +3,9 @@ FROM golang:1.23-alpine AS builder
 WORKDIR /app
 
 COPY go.mod go.sum ./
+
+# Allow Go toolchain to auto-download the required version
+ENV GOTOOLCHAIN=auto
 RUN go mod download
 
 COPY . .
