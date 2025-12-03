@@ -3,7 +3,7 @@ package ports
 import (
 	"context"
 
-	"github.com/xphp/go-url-shortener/internal/core/domain"
+	"github.com/herman-xphp/go-url-shortener/internal/core/domain"
 )
 
 type URLRepository interface {

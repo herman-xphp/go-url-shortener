@@ -6,8 +6,8 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/xphp/go-url-shortener/internal/core/domain"
-	"github.com/xphp/go-url-shortener/internal/core/ports"
+	"github.com/herman-xphp/go-url-shortener/internal/core/domain"
+	"github.com/herman-xphp/go-url-shortener/internal/core/ports"
 )
 
 type URLRepository struct {

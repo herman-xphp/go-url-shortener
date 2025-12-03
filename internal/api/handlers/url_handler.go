@@ -2,8 +2,8 @@ package handlers
 
 import (
 	"github.com/gofiber/fiber/v2"
-	"github.com/xphp/go-url-shortener/internal/core/domain"
-	"github.com/xphp/go-url-shortener/internal/core/services"
+	"github.com/herman-xphp/go-url-shortener/internal/core/domain"
+	"github.com/herman-xphp/go-url-shortener/internal/core/services"
 )
 
 type URLHandler struct {

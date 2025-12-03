@@ -8,12 +8,12 @@ import (
 	"github.com/gofiber/fiber/v2/middleware/cors"
 	"github.com/gofiber/fiber/v2/middleware/logger"
 	"github.com/gofiber/fiber/v2/middleware/recover"
-	"github.com/xphp/go-url-shortener/internal/adapters/storage/postgres"
-	"github.com/xphp/go-url-shortener/internal/adapters/storage/redis"
-	"github.com/xphp/go-url-shortener/internal/api/handlers"
-	"github.com/xphp/go-url-shortener/internal/api/routes"
-	"github.com/xphp/go-url-shortener/internal/core/services"
-	"github.com/xphp/go-url-shortener/pkg/config"
+	"github.com/herman-xphp/go-url-shortener/internal/adapters/storage/postgres"
+	"github.com/herman-xphp/go-url-shortener/internal/adapters/storage/redis"
+	"github.com/herman-xphp/go-url-shortener/internal/api/handlers"
+	"github.com/herman-xphp/go-url-shortener/internal/api/routes"
+	"github.com/herman-xphp/go-url-shortener/internal/core/services"
+	"github.com/herman-xphp/go-url-shortener/pkg/config"
 )
 
 func main() {

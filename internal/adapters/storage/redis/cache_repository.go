@@ -6,7 +6,7 @@ import (
 	"time"
 
 	"github.com/redis/go-redis/v9"
-	"github.com/xphp/go-url-shortener/internal/core/ports"
+	"github.com/herman-xphp/go-url-shortener/internal/core/ports"
 )
 
 type CacheRepository struct {

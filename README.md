@@ -131,6 +131,44 @@ GET /:shortCode
 ```
 Redirects to the original URL and tracks click count.
 
+## Access from Other Devices
+
+Want to test from your phone or tablet? The URL shortener can be accessed from any device on the same network.
+
+**Steps:**
+1. Find your server IP: `ip addr show | grep "inet " | grep -v "127.0.0.1"`
+2. Open firewall port: `./firewall-control.sh open`
+3. Access from phone: `http://YOUR_SERVER_IP:3000`
+4. Close port when done: `./firewall-control.sh close`
+
+See [Firewall Management](#firewall-management) for details.
+
+## Firewall Management
+
+Use the provided script to easily manage firewall access:
+
+```bash
+# Open port temporarily (for testing)
+./firewall-control.sh open
+
+# Close port after testing
+./firewall-control.sh close
+
+# Check port status
+./firewall-control.sh status
+
+# Open permanently (with confirmation)
+./firewall-control.sh permanent-open
+
+# Close permanently
+./firewall-control.sh permanent-close
+```
+
+**Security Best Practice:**
+- Use `open` for testing sessions only
+- Always `close` when done
+- Avoid `permanent-open` unless necessary
+
 ## Testing
 
 ```bash
@@ -145,7 +183,12 @@ curl -L http://localhost:3000/abc123
 
 ## Environment Variables
 
-See `.env.example` for all available configuration options.
+See `.env.example` for all available configuration options:
+- `SERVER_PORT` - HTTP server port (default: 3000)
+- `DB_HOST`, `DB_PORT` - PostgreSQL connection
+- `REDIS_ADDR` - Redis server address
+- `BASE_URL` - Base URL for shortened links
+- `SHORT_CODE_LENGTH` - Length of generated codes (default: 7)
 
 ## License
 

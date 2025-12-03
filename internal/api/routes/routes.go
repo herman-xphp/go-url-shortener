@@ -2,7 +2,7 @@ package routes
 
 import (
 	"github.com/gofiber/fiber/v2"
-	"github.com/xphp/go-url-shortener/internal/api/handlers"
+	"github.com/herman-xphp/go-url-shortener/internal/api/handlers"
 )
 
 func SetupRoutes(app *fiber.App, urlHandler *handlers.URLHandler) {
