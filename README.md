@@ -1,16 +1,17 @@
 # High-Performance URL Shortener
 
-A high-performance URL shortener service built with Go (Golang), Fiber, Redis, and PostgreSQL.
+A high-performance URL shortener service built with Go (Golang), Fiber, Redis, and PostgreSQL with a modern web interface.
 
 ## Features
 
-- ✅ Shorten long URLs to compact short codes
-- ✅ Custom alias support
-- ✅ Click tracking and analytics
-- ✅ Redis caching for fast redirects
-- ✅ PostgreSQL for persistent storage
-- ✅ Clean Architecture design
-- ✅ Docker support
+- ✅ **Modern Web UI** - Beautiful, responsive interface for desktop and mobile
+- ✅ **Shorten URLs** - Convert long URLs to compact short codes instantly
+- ✅ **Custom Aliases** - Create branded short links with custom aliases
+- ✅ **Click Tracking** - Track how many times your links are clicked
+- ✅ **Fast Redirects** - Redis caching for lightning-fast redirects
+- ✅ **Persistent Storage** - PostgreSQL for reliable data persistence
+- ✅ **Clean Architecture** - Well-organized, maintainable codebase
+- ✅ **Docker Support** - Easy deployment with Docker Compose
 
 ## Project Structure
 
@@ -75,14 +76,34 @@ This project follows the Standard Go Project Layout (Clean Architecture):
    go run cmd/api/main.go
    ```
 
-## API Endpoints
+## Usage
 
-### 1. Health Check
+### Web Interface
+
+1. Open your browser and navigate to `http://localhost:3000`
+2. Enter your long URL in the input field
+3. (Optional) Add a custom alias for your short link
+4. Click "Shorten URL" button
+5. Copy your new short URL and share it!
+
+The web interface features:
+- 🎨 Modern, gradient design
+- 📱 Fully responsive (works great on mobile)
+- ⚡ Real-time validation
+- 📋 One-click copy to clipboard
+- 🎯 Custom alias support
+- ✨ Smooth animations and transitions
+
+### API Endpoints
+
+You can also use the REST API directly:
+
+#### 1. Health Check
 ```bash
 GET /health
 ```
 
-### 2. Shorten URL
+#### 2. Shorten URL
 ```bash
 POST /api/shorten
 Content-Type: application/json
@@ -104,7 +125,7 @@ Response:
 }
 ```
 
-### 3. Redirect to Original URL
+#### 3. Redirect to Original URL
 ```bash
 GET /:shortCode
 ```
