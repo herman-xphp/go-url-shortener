@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL Shortener - Fast & Simple</title>
+    <link rel="stylesheet" href="/public/style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="logo">
+                <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                    <rect width="40" height="40" rx="8" fill="#667eea"/>
+                    <path d="M10 20H30M20 10V30" stroke="white" stroke-width="3" stroke-linecap="round"/>
+                </svg>
+                <h1>URL Shortener</h1>
+            </div>
+            <p class="tagline">Shorten your links instantly</p>
+        </header>
+
+        <main class="main-content">
+            <div class="shortener-card">
+                <form id="shortenForm" class="shorten-form">
+                    <div class="form-group">
+                        <label for="originalUrl">Enter your long URL</label>
+                        <input 
+                            type="url" 
+                            id="originalUrl" 
+                            placeholder="https://example.com/very/long/url/here"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="customAlias">Custom alias (optional)</label>
+                        <div class="alias-input-group">
+                            <span class="base-url" id="baseUrl">loading...</span>
+                            <input 
+                                type="text" 
+                                id="customAlias" 
+                                placeholder="my-link"
+                                pattern="[a-zA-Z0-9-_]+"
+                                maxlength="20"
+                            >
+                        </div>
+                        <small class="help-text">4-20 characters, letters, numbers, dash, underscore only</small>
+                    </div>
+
+                    <button type="submit" class="btn-primary" id="shortenBtn">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M10 5V15M5 10H15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                        Shorten URL
+                    </button>
+                </form>
+
+                <div id="result" class="result hidden">
+                    <div class="success-icon">
+                        <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
+                            <circle cx="30" cy="30" r="28" stroke="#10b981" stroke-width="4"/>
+                            <path d="M18 30L26 38L42 22" stroke="#10b981" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3>Your short URL is ready!</h3>
+                    <div class="short-url-display">
+                        <input type="text" id="shortUrl" readonly>
+                        <button class="btn-copy" id="copyBtn" onclick="copyToClipboard()">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <rect x="7" y="7" width="11" height="11" rx="2" stroke="currentColor" stroke-width="2"/>
+                                <path d="M5 13H3C2.44772 13 2 12.5523 2 12V3C2 2.44772 2.44772 2 3 2H12C12.5523 2 13 2.44772 13 3V5" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                            Copy
+                        </button>
+                    </div>
+                    <div class="url-info">
+                        <div class="info-item">
+                            <span class="label">Original URL:</span>
+                            <span class="value" id="originalUrlDisplay"></span>
+                        </div>
+                        <div class="info-item">
+                            <span class="label">Short Code:</span>
+                            <span class="value" id="shortCodeDisplay"></span>
+                        </div>
+                        <div class="info-item">
+                            <span class="label">Created:</span>
+                            <span class="value" id="createdAtDisplay"></span>
+                        </div>
+                    </div>
+                    <button class="btn-secondary" onclick="resetForm()">Shorten Another URL</button>
+                </div>
+
+                <div id="error" class="error hidden">
+                    <div class="error-icon">⚠️</div>
+                    <p id="errorMessage"></p>
+                    <button class="btn-secondary" onclick="hideError()">Try Again</button>
+                </div>
+            </div>
+
+            <div class="features">
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Lightning Fast</h3>
+                    <p>Instant URL shortening with Redis caching for blazing fast redirects</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Custom Aliases</h3>
+                    <p>Create branded short links with your own custom aliases</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>Click Tracking</h3>
+                    <p>Track how many times your short links are clicked</p>
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <p>Built with Go, Fiber, PostgreSQL & Redis</p>
+        </footer>
+    </div>
+
+    <script src="/public/script.js"></script>
+</body>
+</html>

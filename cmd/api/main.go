@@ -58,8 +58,12 @@ func main() {
 		AllowHeaders: "Origin, Content-Type, Accept",
 	}))
 
+	// Serve static files
+	app.Static("/public", "./public")
+	
+	// Serve index.html at root
 	app.Get("/", func(c *fiber.Ctx) error {
-		return c.SendString("High-Performance URL Shortener API is running!")
+		return c.SendFile("./public/index.html")
 	})
 
 	routes.SetupRoutes(app, urlHandler)
